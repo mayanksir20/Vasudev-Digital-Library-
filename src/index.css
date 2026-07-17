@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-navy: #0F172A;
+  --color-navy-deep: #0B1120;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F0DE9E;
+  --color-gold-deep: #9C7A22;
+  --color-ivory: #F5F3EE;
+  --color-mist: #A8B2C4;
+
+  --shadow-gold: 0 8px 40px -8px rgba(212, 175, 55, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-navy-deep);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-navy-deep); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-gold), var(--color-gold-deep));
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reusable utility layer */
+@layer components {
+  .font-display { font-family: var(--font-display); }
+  .font-heading { font-family: var(--font-heading); }
+
+  .text-gold-gradient {
+    background: linear-gradient(90deg, #F0DE9E 0%, #D4AF37 45%, #9C7A22 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #F0DE9E 0%, #D4AF37 50%, #9C7A22 100%);
+  }
+
+  .glass-panel {
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+  }
+
+  .glass-panel-light {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .eyebrow {
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-gold);
+  }
+
+  .section-pad {
+    padding-top: clamp(4.5rem, 8vw, 8rem);
+    padding-bottom: clamp(4.5rem, 8vw, 8rem);
+  }
+
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent);
+  }
+}
