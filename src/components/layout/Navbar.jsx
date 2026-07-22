@@ -48,7 +48,7 @@ export default function Navbar() {
           <div className="h-16 w-16 md:h-18 md:w-18 bg-white rounded-full overflow-hidden border-2 border-gold/40 shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
             <img
               src={Logo}
-              alt="Vasudev Library"
+              alt="vasudev digital library"
               className="h-full w-full object-cover"
             />
           </div>

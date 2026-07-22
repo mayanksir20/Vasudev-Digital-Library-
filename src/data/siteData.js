@@ -30,7 +30,7 @@ export const business = {
   founderTitle: "Founder & Chairman",
   phones: ["8948810093"],
   whatsapp: "8948810093",
-  email: "info@vasudevdigitallibrary.in",
+  email: "info@vasudevdigitallibrary.com",
   hours: {
     weekday: "5:00 AM – 12:00 AM (24×7 on request)",
     note: "Round-the-clock access available for enrolled members",

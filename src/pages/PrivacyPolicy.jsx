@@ -47,19 +47,34 @@ export default function PrivacyPolicy() {
   return (
     <PageTransition>
       <SEO
-        title="Privacy Policy"
-        description="Read the Privacy Policy for Vasudev Digital Library, Akbarpur — how we collect, use and protect your information."
+        title="Privacy Policy | Vasudev Digital Library"
+        description="Read the Privacy Policy of Vasudev Digital Library, Akbarpur. Learn how we collect, use, store and protect your personal information when you use our website and library services."
+        keywords="Privacy Policy, Vasudev Digital Library, Library Privacy Policy, Data Protection, User Privacy, Akbarpur Library, Digital Library Privacy"
+        image="https://vasudevdigitallibrary.com/og-image.jpg"
         path="/privacy-policy"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: "/privacy-policy" },
+        ]}
       />
-      <PageHero crumb="Privacy Policy" eyebrow="Legal" title="Privacy Policy" subtitle="Last updated: July 2026" />
+      <PageHero
+        crumb="Privacy Policy"
+        eyebrow="Legal"
+        title="Privacy Policy"
+        subtitle="Last updated: July 2026"
+      />
 
       <section className="section-pad bg-navy-deep">
         <Container className="max-w-3xl">
           <div className="space-y-10">
             {sections.map((s) => (
               <div key={s.title}>
-                <h2 className="font-heading text-lg font-semibold text-ivory">{s.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-mist">{s.body}</p>
+                <h2 className="font-heading text-lg font-semibold text-ivory">
+                  {s.title}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-mist">
+                  {s.body}
+                </p>
               </div>
             ))}
           </div>

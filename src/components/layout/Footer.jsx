@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-6">
             <Link to="/" className="flex items-center gap-3 group">
               <div className="h-12 w-12 bg-white rounded-full overflow-hidden border border-gold/40 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
-                <img src={Logo} alt="Vasudev Library" className="h-full w-full object-cover" />
+                <img src={Logo} alt="vasudev digital library" className="h-full w-full object-cover" />
               </div>
               <span className="font-heading text-xl font-bold text-ivory tracking-wide">
                 Vasudev Digital Library

@@ -47,19 +47,34 @@ export default function Terms() {
   return (
     <PageTransition>
       <SEO
-        title="Terms & Conditions"
-        description="Read the Terms & Conditions for membership and facility use at Vasudev Digital Library, Akbarpur."
+        title="Terms & Conditions | Vasudev Digital Library"
+        description="Read the Terms & Conditions of Vasudev Digital Library in Akbarpur, Uttar Pradesh. Learn about membership rules, library policies, code of conduct, payments, cancellations, study room usage and visitor guidelines."
+        keywords="Terms and Conditions, Vasudev Digital Library, Library Rules, Membership Terms, Study Library Policies, Digital Library Akbarpur, Reading Room Rules, Library Guidelines, Library Membership"
+        image="https://vasudevdigitallibrary.com/og-image.jpg"
         path="/terms-and-conditions"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Terms & Conditions", path: "/terms-and-conditions" },
+        ]}
       />
-      <PageHero crumb="Terms & Conditions" eyebrow="Legal" title="Terms & Conditions" subtitle="Last updated: July 2026" />
+      <PageHero
+        crumb="Terms & Conditions"
+        eyebrow="Legal"
+        title="Terms & Conditions"
+        subtitle="Last updated: July 2026"
+      />
 
       <section className="section-pad bg-navy-deep">
         <Container className="max-w-3xl">
           <div className="space-y-10">
             {sections.map((s) => (
               <div key={s.title}>
-                <h2 className="font-heading text-lg font-semibold text-ivory">{s.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-mist">{s.body}</p>
+                <h2 className="font-heading text-lg font-semibold text-ivory">
+                  {s.title}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-mist">
+                  {s.body}
+                </p>
               </div>
             ))}
           </div>

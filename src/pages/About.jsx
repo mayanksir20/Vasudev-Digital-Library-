@@ -53,9 +53,15 @@ export default function About() {
   return (
     <PageTransition>
       <SEO
-        title="About Us"
-        description="Learn the story, mission and vision behind Vasudev Digital Library — a premium 24x7 study space in Akbarpur, Uttar Pradesh."
+        title="About Vasudev Digital Library | Best Study Library in Akbarpur"
+        description="Learn about Vasudev Digital Library in Akbarpur, Uttar Pradesh. Discover our mission, vision, premium 24x7 study environment, air-conditioned study cabins, high-speed WiFi, CCTV security and commitment to helping students achieve their goals."
+        keywords="About Vasudev Digital Library, Library in Akbarpur, Best Study Library, Digital Library Akbarpur, Reading Room, AC Library, Silent Study Room, Study Cabin"
+        image="https://vasudevdigitallibrary.com/og-image.jpg"
         path="/about"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]}
       />
       <div className="relative shadow-[0_20px_20px_-10px_rgba(0,0,0,0.5)] z-20">
         <PageHero

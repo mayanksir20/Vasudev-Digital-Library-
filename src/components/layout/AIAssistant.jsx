@@ -18,7 +18,7 @@ export default function AIAssistant() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      text: "Namaste! I'm the Vasudev Library assistant. Ask me about timings, facilities, seat availability, fees, rules or location.",
+      text: "Namaste! I'm the vasudev digital library assistant. Ask me about timings, facilities, seat availability, fees, rules or location.",
     },
   ]);
   const [input, setInput] = useState("");

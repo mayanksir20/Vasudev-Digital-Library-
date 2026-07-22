@@ -76,9 +76,15 @@ export default function Contact() {
   return (
     <PageTransition>
       <SEO
-        title="Contact Us"
-        description="Get in touch with Vasudev Digital Library, Akbarpur — call, WhatsApp, or visit us at Tiraha, Patel Nagar."
+        title="Contact Vasudev Digital Library | Best Study Library in Akbarpur"
+        description="Contact Vasudev Digital Library in Akbarpur, Uttar Pradesh. Call or WhatsApp us to book your study seat. Visit our premium 24x7 air-conditioned digital library with silent study cabins, high-speed WiFi, CCTV security and a distraction-free environment for competitive exam preparation."
+        keywords="Contact Vasudev Digital Library, Library in Akbarpur, Digital Library Akbarpur, Best Study Library, Reading Room Akbarpur, AC Library, Silent Study Room, 24x7 Library, WiFi Library, Library Contact Number, Study Room Near Me"
+        image="https://vasudevdigitallibrary.com/og-image.jpg"
         path="/contact"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
       />
       <div className="relative shadow-[0_20px_20px_-10px_rgba(0,0,0,0.5)] z-20">
         <PageHero

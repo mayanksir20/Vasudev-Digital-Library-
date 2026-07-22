@@ -17,9 +17,12 @@ export default function Home() {
   return (
     <PageTransition>
       <SEO
-        title="Premium 24×7 Digital Library in Akbarpur"
-        description="Vasudev Digital Library — a fully air-conditioned, 24×7 premium study space in Akbarpur with individual chambers, high-speed WiFi and a distraction-free environment."
+        title="Vasudev Digital Library | Best 24×7 Premium Study Library in Akbarpur"
+        description="Vasudev Digital Library is a premium 24×7 air-conditioned study library in Akbarpur, Uttar Pradesh. Enjoy silent study cabins, high-speed WiFi, CCTV security, power backup and a distraction-free environment for UPSC, SSC, Banking, Railway, PCS, NEET, JEE and other competitive exam preparation."
+        keywords="Vasudev Digital Library, Best Library in Akbarpur, Digital Library Akbarpur, Study Library, Reading Room, AC Library, Silent Study Room, 24x7 Library, WiFi Library, Study Cabin, Competitive Exam Library, Library Near Me, Best Reading Room in Ambedkar Nagar"
+        image="https://vasudevdigitallibrary.com/og-image.jpg"
         path="/"
+        breadcrumbs={[{ name: "Home", path: "/" }]}
       />
       <HeroSlider />
       <AboutPreview />

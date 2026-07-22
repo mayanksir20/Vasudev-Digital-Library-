@@ -12,9 +12,12 @@ export default function FeedbackAdmin() {
   return (
     <PageTransition>
       <SEO
-        title="Feedback Admin Panel"
-        description="Internal view of member feedback submitted through the Vasudev Digital Library website."
+        title="Feedback Admin Panel | Vasudev Digital Library"
+        description="Secure administrative dashboard for managing and reviewing member feedback submitted through the Vasudev Digital Library website."
+        keywords="Feedback Admin, Vasudev Digital Library Admin"
+        image="https://vasudevdigitallibrary.com/og-image.jpg"
         path="/feedback-admin"
+        robots="noindex,nofollow"
       />
       <PageHero
         crumb="Feedback Admin"
@@ -26,7 +29,9 @@ export default function FeedbackAdmin() {
       <section className="section-pad bg-navy-deep pt-0">
         <Container>
           <div className="mb-8 flex items-center justify-between">
-            <p className="text-sm text-mist">{entries.length} submission{entries.length !== 1 ? "s" : ""}</p>
+            <p className="text-sm text-mist">
+              {entries.length} submission{entries.length !== 1 ? "s" : ""}
+            </p>
             {entries.length > 0 && (
               <button
                 onClick={clearAll}
@@ -43,8 +48,9 @@ export default function FeedbackAdmin() {
                 <FiInbox />
               </span>
               <p className="text-mist text-sm max-w-sm">
-                No feedback yet. Submissions made through the Feedback form on the homepage
-                will appear here, stored in this browser's local storage.
+                No feedback yet. Submissions made through the Feedback form on
+                the homepage will appear here, stored in this browser's local
+                storage.
               </p>
             </div>
           ) : (
@@ -66,12 +72,22 @@ export default function FeedbackAdmin() {
                   </button>
                   <div className="flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, s) => (
-                      <FiStar key={s} size={13} className={s < e.rating ? "fill-gold text-gold" : "text-mist/30"} />
+                      <FiStar
+                        key={s}
+                        size={13}
+                        className={
+                          s < e.rating ? "fill-gold text-gold" : "text-mist/30"
+                        }
+                      />
                     ))}
                   </div>
-                  <p className="mt-3 text-sm text-ivory leading-relaxed">{e.message}</p>
+                  <p className="mt-3 text-sm text-ivory leading-relaxed">
+                    {e.message}
+                  </p>
                   <div className="mt-4 flex items-center justify-between text-xs text-mist">
-                    <span>{e.name} · {e.phone}</span>
+                    <span>
+                      {e.name} · {e.phone}
+                    </span>
                     <span>{new Date(e.date).toLocaleDateString()}</span>
                   </div>
                 </motion.div>
