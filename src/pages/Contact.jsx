@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMapPin, FiPhone, FiMail, FiClock, FiCheckCircle } from "react-icons/fi";
+import {
+  FiMapPin,
+  FiPhone,
+  FiMail,
+  FiClock,
+  FiCheckCircle,
+} from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import PageTransition from "../components/layout/PageTransition";
 import SEO from "../components/layout/SEO";
@@ -11,22 +17,57 @@ import Button from "../components/ui/Button";
 import { business, whatsappLink } from "../data/siteData";
 
 const infoCards = [
-  { icon: FiMapPin, title: "Address", lines: [business.address.line1, business.address.line2] },
-  { icon: FiPhone, title: "Phone", lines: business.phones.map((p) => `+91 ${p}`) },
+  {
+    icon: FiMapPin,
+    title: "Address",
+    lines: [business.address.line1, business.address.line2],
+  },
+  {
+    icon: FiPhone,
+    title: "Phone",
+    lines: business.phones.map((p) => `+91 ${p}`),
+  },
   { icon: FaWhatsapp, title: "WhatsApp", lines: [`+91 ${business.whatsapp}`] },
   { icon: FiMail, title: "Email", lines: [business.email] },
   { icon: FiClock, title: "Working Hours", lines: [business.hours.weekday] },
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
   const [sent, setSent] = useState(false);
 
-  const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  const handleChange = (e) =>
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim() || !form.message.trim()) return;
+
+    // 1. Hosting ke PHP script par data bhejna (Email ke liye)
+    try {
+      await fetch("/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch (error) {
+      console.error("Email sending error:", error);
+    }
+
+    // 2. WhatsApp par bhi redirect karne ke liye
+    const adminWhatsAppNumber = "918948810093"; // Apna WhatsApp number dalein
+    const text = `New Website Query:%0A*Name:* ${encodeURIComponent(form.name)}%0A*Phone:* ${encodeURIComponent(form.phone)}%0A*Email:* ${encodeURIComponent(form.email || "N/A")}%0A*Message:* ${encodeURIComponent(form.message)}`;
+    const whatsappUrl = `https://wa.me/${adminWhatsAppNumber}?text=${text}`;
+
+    // Thoda sa delay ya direct open
+    window.open(whatsappUrl, "_blank");
+
+    // Success state aur form clear karna
     setSent(true);
     setForm({ name: "", phone: "", email: "", message: "" });
     setTimeout(() => setSent(false), 4000);
@@ -39,25 +80,36 @@ export default function Contact() {
         description="Get in touch with Vasudev Digital Library, Akbarpur — call, WhatsApp, or visit us at Tiraha, Patel Nagar."
         path="/contact"
       />
-      <PageHero
-        crumb="Contact"
-        eyebrow="Get In Touch"
-        title="We'd love to have you visit"
-        subtitle="Call us, message us on WhatsApp, or stop by — our team is ready to help you find your seat."
-      />
+      <div className="relative shadow-[0_20px_20px_-10px_rgba(0,0,0,0.5)] z-20">
+        <PageHero
+          crumb="Contact"
+          eyebrow="Get In Touch"
+          title="We'd love to have you visit"
+          subtitle="Call us, message us on WhatsApp, or stop by — our team is ready to help you find your seat."
+        />
+      </div>
 
       <section className="section-pad bg-navy-deep">
         <Container>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {infoCards.map((c, i) => (
-              <GlassCard key={c.title} delay={i * 0.08} hover={false} className="lg:col-span-1">
+              <GlassCard
+                key={c.title}
+                delay={i * 0.08}
+                hover={false}
+                className="lg:col-span-1"
+              >
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold text-lg">
                   <c.icon />
                 </span>
-                <h3 className="mt-4 font-heading text-sm font-semibold text-ivory">{c.title}</h3>
+                <h3 className="mt-4 font-heading text-sm font-semibold text-ivory">
+                  {c.title}
+                </h3>
                 <div className="mt-1.5 space-y-0.5">
                   {c.lines.map((l) => (
-                    <p key={l} className="text-xs text-mist">{l}</p>
+                    <p key={l} className="text-xs text-mist">
+                      {l}
+                    </p>
                   ))}
                 </div>
               </GlassCard>
@@ -66,7 +118,7 @@ export default function Contact() {
         </Container>
       </section>
 
-      <section className="section-pad bg-navy pt-0">
+      <section className="section-pad bg-navy pt-24">
         <Container>
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
             <motion.div
@@ -81,7 +133,11 @@ export default function Contact() {
                 src={business.mapEmbed}
                 width="100%"
                 height="100%"
-                style={{ minHeight: 420, border: 0, filter: "grayscale(0.3) contrast(1.1)" }}
+                style={{
+                  minHeight: 420,
+                  border: 0,
+                  filter: "grayscale(0.3) contrast(1.1)",
+                }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -96,7 +152,9 @@ export default function Contact() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="glass-panel rounded-3xl p-7 md:p-9 space-y-5"
             >
-              <h3 className="font-display text-2xl text-ivory">Send us a message</h3>
+              <h3 className="font-display text-2xl text-ivory">
+                Send us a message
+              </h3>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <input
                   required
@@ -135,7 +193,14 @@ export default function Contact() {
               />
               <div className="flex flex-wrap gap-4">
                 <Button type="submit">Send Message</Button>
-                <Button as="a" href={whatsappLink()} target="_blank" variant="ghost">Chat on WhatsApp</Button>
+                <Button
+                  as="a"
+                  href={whatsappLink()}
+                  target="_blank"
+                  variant="ghost"
+                >
+                  Chat on WhatsApp
+                </Button>
               </div>
               <AnimatePresence>
                 {sent && (
@@ -145,7 +210,8 @@ export default function Contact() {
                     exit={{ opacity: 0 }}
                     className="flex items-center gap-2 rounded-xl bg-gold/10 px-4 py-3 text-sm text-gold"
                   >
-                    <FiCheckCircle /> Thanks! We'll get back to you shortly. For a faster reply, call +91 {business.phones[0]}.
+                    <FiCheckCircle /> Thanks! We'll get back to you shortly. For
+                    a faster reply, call +91 {business.phones[0]}.
                   </motion.div>
                 )}
               </AnimatePresence>

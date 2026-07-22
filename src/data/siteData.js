@@ -1,3 +1,20 @@
+// Image Import
+// Gallery images are imported here to be used in the gallery section 
+import img1 from "../assets/images/gallery (1).webp";
+import img2 from "../assets/images/gallery (2).webp";
+import img3 from "../assets/images/gallery (3).webp";
+import img4 from "../assets/images/gallery (4).webp";
+import img5 from "../assets/images/gallery (5).webp";
+import img6 from "../assets/images/gallery (6).webp";
+import img7 from "../assets/images/gallery (7).webp";
+import img8 from "../assets/images/gallery (8).webp";
+import img9 from "../assets/images/gallery (9).webp";
+import img10 from "../assets/images/gallery (10).webp";
+import img11 from "../assets/images/gallery (11).webp";
+import img12 from "../assets/images/gallery (12).webp";
+import img13 from "../assets/images/gallery (13).webp";
+
+
 // Central business data — single source of truth used across the site.
 
 export const business = {
@@ -11,21 +28,29 @@ export const business = {
   director: "Aman Verma",
   founder: "Sabhajeet Verma",
   founderTitle: "Founder & Chairman",
-  phones: ["8400298007", "8948810093"],
-  whatsapp: "8400298007",
+  phones: ["8948810093"],
+  whatsapp: "8948810093",
   email: "info@vasudevdigitallibrary.in",
   hours: {
     weekday: "5:00 AM – 12:00 AM (24×7 on request)",
     note: "Round-the-clock access available for enrolled members",
   },
   mapEmbed:
-    "https://www.google.com/maps?q=Patel+Nagar,+Akbarpur,+Uttar+Pradesh+224122&output=embed",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14289.864417762827!2d82.53634496018162!3d26.44070051558359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3990936329e97be9%3A0xc9b78c8067528aa7!2sVasudev%20digital%20library!5e0!3m2!1sen!2sin!4v1784359184843!5m2!1sen!2sin",
   social: {
     facebook: "#",
-    instagram: "#",
-    youtube: "#",
+    instagram: "https://www.instagram.com/vasudev_library_official",
+    youtube: "https://www.youtube.com/@VasudevDigitallibrary",
     twitter: "#",
   },
+};
+
+// src/data/siteData.js
+export const socialLinks = {
+  facebook: "https://facebook.com/your-page",
+  instagram: "https://www.instagram.com/vasudev_library_official",
+  youtube: "https://www.youtube.com/@VasudevDigitallibrary",
+  twitter: "https://twitter.com/your-handle"
 };
 
 export const whatsappLink = (message = "Hi, I would like to know more about Vasudev Digital Library.") =>
@@ -83,7 +108,7 @@ export const safetyTimeline = [
 export const certificates = [
   { title: "Government Registration Certificate", issuer: "Dept. of Registration, U.P.", year: "2023" },
   { title: "Fire Safety Compliance Certificate", issuer: "U.P. Fire Department", year: "2023" },
-  { title: "Trade License", issuer: "Nagar Panchayat, Akbarpur", year: "2023" },
+  { title: "Trade License", issuer: " Nagarpalika, Akbarpur", year: "2023" },
   { title: "Local Authority Approval", issuer: "Block Office, Akbarpur", year: "2023" },
 ];
 
@@ -102,21 +127,52 @@ export const studyMaterials = [
 export const galleryCategories = ["All", "Reading Halls", "Cabins", "Facilities", "Events"];
 
 export const galleryImages = [
-  { id: 1, category: "Reading Halls", src: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=900&auto=format&fit=crop", alt: "Premium reading hall" },
-  { id: 2, category: "Cabins", src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=900&auto=format&fit=crop", alt: "Individual study cabin" },
-  { id: 3, category: "Facilities", src: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=900&auto=format&fit=crop", alt: "Library facilities" },
-  { id: 4, category: "Reading Halls", src: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=900&auto=format&fit=crop", alt: "Students reading" },
-  { id: 5, category: "Events", src: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=900&auto=format&fit=crop", alt: "Library event" },
-  { id: 6, category: "Cabins", src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=900&auto=format&fit=crop", alt: "Study chamber" },
-  { id: 7, category: "Facilities", src: "https://images.unsplash.com/photo-1481277542470-605612bd2d61?q=80&w=900&auto=format&fit=crop", alt: "Library amenities" },
-  { id: 8, category: "Reading Halls", src: "https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=900&auto=format&fit=crop", alt: "Silent reading zone" },
-  { id: 9, category: "Events", src: "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=900&auto=format&fit=crop", alt: "Library gathering" },
+  { id: 1, category: "Reading Halls", src: img1, alt: "Premium reading hall" },
+  { id: 2, category: "Cabins", src: img2, alt: "Individual study cabin" },
+  { id: 3, category: "Facilities", src: img3, alt: "Library facilities" },
+  { id: 4, category: "Reading Halls", src: img4, alt: "Students reading" },
+  { id: 5, category: "Events", src: img5, alt: "Library event" },
+  { id: 6, category: "Cabins", src: img6, alt: "Study chamber" },
+  { id: 7, category: "Facilities", src: img7, alt: "Library amenities" },
+  { id: 8, category: "Reading Halls", src: img8, alt: "Silent reading zone" },
+  { id: 9, category: "Events", src: img9, alt: "Library gathering" },
+  { id: 10, category: "Cabins", src: img10, alt: "Private study space" },
+  { id: 11, category: "Facilities", src: img11, alt: "Library infrastructure" },
+  { id: 12, category: "Reading Halls", src: img12, alt: "Students studying" },
+  { id: 13, category: "Events", src: img13, alt: "Library workshop" },
 ];
 
+
+import videoGallery1 from "../assets/thumbnails/A Walkthrough of Vasudev Digital Library.webp";
+import videoGallery2 from "../assets/thumbnails/Inside Our 24×7 Reading Hall.webp";
+import videoGallery3 from "../assets/thumbnails/Meet Our Members.webp";
+import videoGallery4 from "../assets/thumbnails/Library Facilities & Environment.webp";
+
 export const videoGallery = [
-  { id: 1, title: "A Walkthrough of Vasudev Digital Library", thumb: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=900&auto=format&fit=crop" },
-  { id: 2, title: "Inside Our 24×7 Reading Hall", thumb: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=900&auto=format&fit=crop" },
-  { id: 3, title: "Meet Our Members", thumb: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=900&auto=format&fit=crop" },
+  {
+    id: 1,
+    title: "A Walkthrough of Vasudev Digital Library",
+    thumb: videoGallery1,
+    youtubeId: "XHFV9jD82Wc" // Yaha apni YouTube video ID dalein (jaise dQw4w9WgXcQ)
+  },
+  {
+    id: 2,
+    title: "Inside Our 24×7 Reading Hall",
+    thumb: videoGallery2,
+    youtubeId: "kZBSg5UJ-l4"
+  },
+  {
+    id: 3,
+    title: "Meet Our Members",
+    thumb: videoGallery3,
+    youtubeId: "zGnUu0Ap63U"
+  },
+  {
+    id: 4,
+    title: "Library Facilities & Environment",
+    thumb: videoGallery4,
+    youtubeId: "gREEvnkJbj4"
+  },
 ];
 
 export const testimonials = [

@@ -12,12 +12,14 @@ export default function StudyMaterial() {
         description="Curated study material at Vasudev Digital Library — UPSC, SSC, Bank, Railway, UP Police, Teaching, State PCS notes and current affairs."
         path="/study-material"
       />
-      <PageHero
-        crumb="Study Material"
-        eyebrow="Curated Resources"
-        title="Everything you need, organised by exam"
-        subtitle="From UPSC to State PCS — access curated notes, previous year papers and current affairs digests, kept up to date."
-      />
+      <div className="relative shadow-[0_20px_20px_-10px_rgba(0,0,0,0.5)] z-20">
+        <PageHero
+          crumb="Study Material"
+          eyebrow="Curated Resources"
+          title="Everything you need, organised by exam"
+          subtitle="From UPSC to State PCS — access curated notes, previous year papers and current affairs digests, kept up to date."
+        />
+      </div>
       <StudyMaterialSection />
       <CTASection />
     </PageTransition>

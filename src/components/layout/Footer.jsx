@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
-import { FiFacebook, FiInstagram, FiYoutube, FiTwitter, FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import {
+  FiFacebook,
+  FiInstagram,
+  FiYoutube,
+  FiTwitter,
+  FiPhone,
+  FiMail,
+  FiMapPin,
+  FiArrowUpRight,
+} from "react-icons/fi";
 import Container from "../ui/Container";
-import { business, telLink } from "../../data/siteData";
+import { business, telLink, socialLinks } from "../../data/siteData";
+import Logo from "../../assets/images/bg-remove-logo.webp";
 
 const pages = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Study Material", to: "/study-material" },
   { label: "Facilities", to: "/facilities" },
+  { label: "Study Material", to: "/study-material" },
   { label: "Gallery", to: "/gallery" },
   { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
@@ -20,63 +30,102 @@ const legal = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-gold/10 bg-navy-deep pt-16 pb-8">
-      <Container>
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <Link to="/" className="flex items-center gap-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold-gradient font-display text-lg font-bold text-navy-deep">V</span>
-              <span className="font-display text-lg font-semibold text-ivory">Vasudev Digital Library</span>
+    <footer className="relative border-t border-gold/15 bg-navy-deep pt-20 pb-10 text-ivory/80 overflow-hidden">
+      {/* Background Glow Effect */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gold/5 blur-[120px] pointer-events-none rounded-full" />
+
+      <Container className="relative z-10">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          
+          {/* Brand & Bio (Col 4) */}
+          <div className="lg:col-span-4 space-y-6">
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="h-12 w-12 bg-white rounded-full overflow-hidden border border-gold/40 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
+                <img src={Logo} alt="Vasudev Library" className="h-full w-full object-cover" />
+              </div>
+              <span className="font-heading text-xl font-bold text-ivory tracking-wide">
+                Vasudev Digital Library
+              </span>
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-mist">
-              A premium, distraction-free study sanctuary in Akbarpur — built for aspirants
-              who take their preparation seriously.
+            
+            <p className="text-sm leading-relaxed text-ivory/60 max-w-sm">
+              A premium, distraction-free study sanctuary in Akbarpur — built for aspirants who take their preparation seriously.
             </p>
-            <div className="mt-5 flex gap-3">
-              {[FiFacebook, FiInstagram, FiYoutube, FiTwitter].map((Icon, i) => (
+
+            {/* Social Icons */}
+            <div className="flex gap-3 pt-2">
+              {[
+                { Icon: FiFacebook, href: socialLinks.facebook, label: "Facebook" },
+                { Icon: FiInstagram, href: socialLinks.instagram, label: "Instagram" },
+                { Icon: FiYoutube, href: socialLinks.youtube, label: "YouTube" },
+                { Icon: FiTwitter, href: socialLinks.twitter, label: "Twitter" },
+              ].map(({ Icon, href, label }, i) => (
                 <a
                   key={i}
-                  href="#"
-                  aria-label="social link"
-                  className="flex h-9 w-9 items-center justify-center rounded-full glass-panel-light text-ivory/80 transition-colors hover:text-gold hover:border-gold/50"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.03] border border-white/10 text-ivory/80 transition-all duration-300 hover:text-gold hover:border-gold/40 hover:bg-gold/5 hover:-translate-y-1"
                 >
-                  <Icon size={15} />
+                  <Icon size={17} />
                 </a>
               ))}
             </div>
           </div>
 
-          <div>
-            <h4 className="eyebrow mb-5">Pages</h4>
+          {/* Quick Links (Col 2) */}
+          <div className="lg:col-span-2">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-gold mb-6 font-heading">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {pages.map((p) => (
                 <li key={p.to}>
-                  <Link to={p.to} className="text-sm text-mist transition-colors hover:text-gold">
-                    {p.label}
+                  <Link
+                    to={p.to}
+                    className="text-sm text-ivory/60 transition-colors hover:text-gold flex items-center gap-1 group"
+                  >
+                    <span className="transition-transform group-hover:translate-x-1">›</span> {p.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="eyebrow mb-5">Leadership</h4>
-            <ul className="space-y-4 text-sm text-mist">
-              <li>
-                <span className="block text-ivory font-medium">{business.director}</span>
-                Director
-              </li>
-              <li>
-                <span className="block text-ivory font-medium">{business.founder}</span>
-                {business.founderTitle}
-              </li>
-            </ul>
-            <div className="mt-5">
-              <h4 className="eyebrow mb-3">Legal</h4>
+          {/* Leadership & Legal (Col 3) */}
+          <div className="lg:col-span-3 space-y-8">
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-widest text-gold mb-6 font-heading">
+                Leadership
+              </h4>
+              <ul className="space-y-3 text-sm text-ivory/60">
+                <li>
+                  <span className="block text-ivory font-medium">
+                    {business.director}
+                  </span>
+                  <span className="text-xs text-gold/80">Director</span>
+                </li>
+                <li className="pt-1">
+                  <span className="block text-ivory font-medium">
+                    {business.founder}
+                  </span>
+                  <span className="text-xs text-gold/80">{business.founderTitle}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-widest text-gold mb-4 font-heading">
+                Legal
+              </h4>
               <ul className="space-y-2">
                 {legal.map((l) => (
                   <li key={l.to}>
-                    <Link to={l.to} className="text-sm text-mist transition-colors hover:text-gold">
+                    <Link
+                      to={l.to}
+                      className="text-xs text-ivory/60 transition-colors hover:text-gold"
+                    >
                       {l.label}
                     </Link>
                   </li>
@@ -85,32 +134,52 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h4 className="eyebrow mb-5">Contact</h4>
-            <ul className="space-y-4 text-sm text-mist">
+          {/* Contact Info (Col 3) */}
+          <div className="lg:col-span-3">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-gold mb-6 font-heading">
+              Get in Touch
+            </h4>
+            <ul className="space-y-4 text-sm text-ivory/60">
               <li className="flex items-start gap-3">
-                <FiMapPin className="mt-0.5 shrink-0 text-gold" />
-                {business.address.full}
+                <FiMapPin className="mt-1 shrink-0 text-gold" />
+                <span className="leading-relaxed">{business.address.full}</span>
               </li>
               {business.phones.map((p) => (
                 <li key={p} className="flex items-center gap-3">
                   <FiPhone className="shrink-0 text-gold" />
-                  <a href={telLink(p)} className="hover:text-gold transition-colors">+91 {p}</a>
+                  <a
+                    href={telLink(p)}
+                    className="hover:text-gold transition-colors font-medium text-ivory"
+                  >
+                    +91 {p}
+                  </a>
                 </li>
               ))}
               <li className="flex items-center gap-3">
                 <FiMail className="shrink-0 text-gold" />
-                <a href={`mailto:${business.email}`} className="hover:text-gold transition-colors">{business.email}</a>
+                <a
+                  href={`mailto:${business.email}`}
+                  className="hover:text-gold transition-colors break-all"
+                >
+                  {business.email}
+                </a>
               </li>
             </ul>
           </div>
+
         </div>
 
-        <div className="hairline my-10" />
+        {/* Bottom Bar Divider */}
+        <div className="h-px w-full bg-white/10 my-10" />
 
-        <div className="flex flex-col-reverse items-center justify-between gap-4 text-xs text-mist md:flex-row">
-          <p>© {new Date().getFullYear()} Vasudev Digital Library. All rights reserved.</p>
-          <p>Crafted with care for every aspirant who walks through our doors.</p>
+        {/* Copyright & Credits */}
+        <div className="flex flex-col-reverse items-center justify-between gap-4 text-xs text-ivory/50 md:flex-row">
+          <p>
+            © {new Date().getFullYear()} Vasudev Digital Library. All rights reserved.
+          </p>
+          <p className="flex items-center gap-1">
+            Crafted with care for every aspirant who walks through our doors.
+          </p>
         </div>
       </Container>
     </footer>

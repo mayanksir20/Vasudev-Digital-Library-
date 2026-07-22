@@ -12,12 +12,14 @@ export default function Gallery() {
         description="Browse photos and videos of Vasudev Digital Library's reading halls, study chambers and facilities in Akbarpur."
         path="/gallery"
       />
-      <PageHero
-        crumb="Gallery"
-        eyebrow="See It For Yourself"
-        title="A visual tour of Vasudev Digital Library"
-        subtitle="Every hall, every chamber, every quiet corner — captured."
-      />
+      <div className="relative shadow-[0_20px_20px_-10px_rgba(0,0,0,0.5)] z-20">
+        <PageHero
+          crumb="Gallery"
+          eyebrow="See It For Yourself"
+          title="A visual tour of Vasudev Digital Library"
+          subtitle="Every hall, every chamber, every quiet corner — captured."
+        />
+      </div>
       <GallerySection />
       <VideoGallery />
     </PageTransition>

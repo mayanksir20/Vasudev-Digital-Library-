@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { FiArrowRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Button from "../ui/Button";
 import Container from "../ui/Container";
 import { whatsappLink } from "../../data/siteData";
+import slideImage1 from "../../assets/images/librarry-1.webp";
+import slideImage2 from "../../assets/images/gallery (10).webp";
+import slideImage3 from "../../assets/images/gallery (8).webp";
 
 const slides = [
   {
@@ -12,7 +20,7 @@ const slides = [
     title: "A Luxury Study\nEnvironment",
     subtitle:
       "Individually chambered seating, premium finishes and an atmosphere built for serious preparation.",
-    img: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1920&auto=format&fit=crop",
+    img: slideImage1,
   },
   {
     id: 2,
@@ -20,7 +28,7 @@ const slides = [
     title: "A Peaceful\nLearning Space",
     subtitle:
       "Silent zones, filtered light and a calm environment designed to keep your focus unbroken.",
-    img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1920&auto=format&fit=crop",
+    img: slideImage2,
   },
   {
     id: 3,
@@ -28,7 +36,7 @@ const slides = [
     title: "24×7 Smart\nDigital Library",
     subtitle:
       "Round-the-clock access, high-speed connectivity and security that never sleeps — so neither do your ambitions.",
-    img: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=1920&auto=format&fit=crop",
+    img: slideImage3,
   },
 ];
 
@@ -37,7 +45,7 @@ const SEAT_COLS = 6;
 
 function LiveSeatPanel() {
   const [seats, setSeats] = useState(() =>
-    Array.from({ length: SEAT_ROWS * SEAT_COLS }, () => Math.random() > 0.42)
+    Array.from({ length: SEAT_ROWS * SEAT_COLS }, () => Math.random() > 0.42),
   );
 
   useEffect(() => {
@@ -65,7 +73,10 @@ function LiveSeatPanel() {
         <div>
           <p className="eyebrow !text-[0.62rem]">Live Seat Map</p>
           <p className="font-display text-2xl text-ivory">
-            {available} <span className="text-sm font-body text-mist font-normal">seats open</span>
+            {available}{" "}
+            <span className="text-sm font-body text-mist font-normal">
+              seats open
+            </span>
           </p>
         </div>
         <span className="relative flex h-2.5 w-2.5">
@@ -77,15 +88,23 @@ function LiveSeatPanel() {
         {seats.map((occupied, i) => (
           <motion.span
             key={i}
-            animate={{ backgroundColor: occupied ? "rgba(212,175,55,0.85)" : "rgba(255,255,255,0.12)" }}
+            animate={{
+              backgroundColor: occupied
+                ? "rgba(212,175,55,0.85)"
+                : "rgba(255,255,255,0.12)",
+            }}
             transition={{ duration: 0.6 }}
             className="aspect-square w-full rounded-[4px]"
           />
         ))}
       </div>
       <div className="flex items-center gap-4 text-[11px] text-mist">
-        <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-[2px] bg-gold/85" /> Occupied</span>
-        <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-[2px] bg-white/15" /> Available</span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-[2px] bg-gold/85" /> Occupied
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-[2px] bg-white/15" /> Available
+        </span>
       </div>
     </motion.div>
   );
@@ -97,7 +116,10 @@ export default function HeroSlider() {
   const y = useTransform(scrollY, [0, 800], [0, 200]);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 6500);
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % slides.length),
+      6500,
+    );
     return () => clearInterval(id);
   }, []);
 
@@ -115,7 +137,11 @@ export default function HeroSlider() {
           className="absolute inset-0"
         >
           <motion.div style={{ y }} className="absolute inset-0 -top-10">
-            <img src={slide.img} alt={slide.title} className="h-[120%] w-full object-cover" />
+            <img
+              src={slide.img}
+              alt={slide.title}
+              className="h-[120%] w-full object-cover"
+            />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/80 via-navy-deep/60 to-navy-deep" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/70 via-transparent to-navy-deep/40" />
@@ -152,7 +178,9 @@ export default function HeroSlider() {
                 <h1 className="whitespace-pre-line font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.05] text-ivory">
                   {slide.title}
                 </h1>
-                <p className="mt-6 max-w-lg text-base md:text-lg text-mist">{slide.subtitle}</p>
+                <p className="mt-6 max-w-lg text-base md:text-lg text-mist">
+                  {slide.subtitle}
+                </p>
               </motion.div>
             </AnimatePresence>
 
@@ -162,9 +190,20 @@ export default function HeroSlider() {
               transition={{ delay: 0.4, duration: 0.7 }}
               className="mt-9 flex flex-wrap gap-4"
             >
-              <Button as="link" to="/contact" icon={FiArrowRight}>Join Now</Button>
-              <Button as="link" to="/facilities" variant="ghost">View Facilities</Button>
-              <Button as="a" href={whatsappLink()} target="_blank" variant="dark">Contact Us</Button>
+              <Button as="link" to="/contact" icon={FiArrowRight}>
+                Join Now
+              </Button>
+              <Button as="link" to="/facilities" variant="ghost">
+                View Facilities
+              </Button>
+              <Button
+                as="a"
+                href={whatsappLink()}
+                target="_blank"
+                variant="dark"
+              >
+                Contact Us
+              </Button>
             </motion.div>
           </div>
 
@@ -192,13 +231,17 @@ export default function HeroSlider() {
                     transition={{ duration: 6.5, ease: "linear" }}
                   />
                 )}
-                {i !== index && <span className="absolute inset-y-0 left-0 w-0 rounded-full bg-gold" />}
+                {i !== index && (
+                  <span className="absolute inset-y-0 left-0 w-0 rounded-full bg-gold" />
+                )}
               </button>
             ))}
           </div>
           <div className="hidden sm:flex items-center gap-3">
             <button
-              onClick={() => setIndex((i) => (i - 1 + slides.length) % slides.length)}
+              onClick={() =>
+                setIndex((i) => (i - 1 + slides.length) % slides.length)
+              }
               aria-label="Previous slide"
               className="flex h-10 w-10 items-center justify-center rounded-full glass-panel-light text-ivory hover:text-gold"
             >

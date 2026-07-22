@@ -4,6 +4,7 @@ import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import Button from "../ui/Button";
 import StatsCounter from "./StatsCounter";
+import AboutPreviewImage from "../../assets/images/banner-1.webp";
 
 export default function AboutPreview() {
   return (
@@ -19,9 +20,9 @@ export default function AboutPreview() {
           >
             <div className="relative overflow-hidden rounded-3xl">
               <img
-                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1200&auto=format&fit=crop"
+                src={AboutPreviewImage}
                 alt="Student studying in a private chamber"
-                className="h-[460px] w-full object-cover"
+                className="h-[460px] w-full object-contain transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-transparent to-transparent" />
             </div>
@@ -33,7 +34,9 @@ export default function AboutPreview() {
               className="glass-panel absolute -bottom-8 -right-6 hidden w-64 rounded-2xl p-5 sm:block"
             >
               <p className="font-display text-3xl text-gold">7+ yrs</p>
-              <p className="text-sm text-mist">of shaping disciplined, focused study habits in Akbarpur.</p>
+              <p className="text-sm text-mist">
+                of shaping disciplined, focused study habits in Akbarpur.
+              </p>
             </motion.div>
           </motion.div>
 
@@ -46,9 +49,18 @@ export default function AboutPreview() {
             />
             <div className="mt-8 space-y-5">
               {[
-                { title: "Our Mission", desc: "To give every aspirant in Akbarpur access to a premium, distraction-free study environment, regardless of background." },
-                { title: "Our Vision", desc: "To become the region's most trusted name in disciplined, outcome-driven study spaces." },
-                { title: "Our Discipline", desc: "Strict silent zones, individual chambers and a culture of focus built into every corner of the library." },
+                {
+                  title: "Our Mission",
+                  desc: "To give every aspirant in Akbarpur access to a premium, distraction-free study environment, regardless of background.",
+                },
+                {
+                  title: "Our Vision",
+                  desc: "To become the region's most trusted name in disciplined, outcome-driven study spaces.",
+                },
+                {
+                  title: "Our Discipline",
+                  desc: "Strict silent zones, individual chambers and a culture of focus built into every corner of the library.",
+                },
               ].map((item, i) => (
                 <motion.div
                   key={item.title}
@@ -59,14 +71,21 @@ export default function AboutPreview() {
                   className="flex gap-4 border-l-2 border-gold/30 pl-5"
                 >
                   <div>
-                    <p className="font-heading text-ivory font-semibold">{item.title}</p>
+                    <p className="font-heading text-ivory font-semibold">
+                      {item.title}
+                    </p>
                     <p className="text-sm text-mist mt-1">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
             <div className="mt-9">
-              <Button as="link" to="/about" variant="ghost" icon={FiArrowUpRight}>
+              <Button
+                as="link"
+                to="/about"
+                variant="ghost"
+                icon={FiArrowUpRight}
+              >
                 Discover Our Full Story
               </Button>
             </div>

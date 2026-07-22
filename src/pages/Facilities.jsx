@@ -14,12 +14,14 @@ export default function Facilities() {
         description="Explore every facility at Vasudev Digital Library — air conditioning, individual study chambers, high-speed WiFi, safety measures and more."
         path="/facilities"
       />
-      <PageHero
-        crumb="Facilities"
-        eyebrow="Everything Included"
-        title="A study experience with nothing left to chance"
-        subtitle="From comfort to safety, every facility here has been chosen with one goal — helping you focus for longer, without compromise."
-      />
+      <div className="relative shadow-[0_20px_20px_-10px_rgba(0,0,0,0.5)] z-20">
+        <PageHero
+          crumb="Facilities"
+          eyebrow="Everything Included"
+          title="A study experience with nothing left to chance"
+          subtitle="From comfort to safety, every facility here has been chosen with one goal — helping you focus for longer, without compromise."
+        />
+      </div>
       <WhyChooseUs />
       <SpecialFacilities />
       <SafetyTimeline />
