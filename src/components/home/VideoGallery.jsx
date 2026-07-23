@@ -21,7 +21,7 @@ export default function VideoGallery() {
           <SectionHeading
             eyebrow="Video Gallery"
             title="See the library in motion"
-            subtitle="A closer look at our reading halls, chambers and the everyday rhythm of Vasudev Digital Library."
+            subtitle="A closer look at our Inside Our 24×7 Reading Halls, chambers and the everyday rhythm of Vasudev Digital Library."
           />
 
           {/* Custom Navigation Arrows */}

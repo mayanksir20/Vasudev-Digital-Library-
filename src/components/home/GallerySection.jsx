@@ -23,7 +23,7 @@ export default function GallerySection({ compact = false }) {
         <SectionHeading
           eyebrow="Photo Gallery"
           title="A glimpse inside Vasudev"
-          subtitle="Reading halls, private chambers and the quiet corners that make this space feel different."
+          subtitle="Inside Our 24×7 Reading Halls, private chambers and the quiet corners that make this space feel different."
         />
 
         {!compact && (

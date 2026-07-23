@@ -10,6 +10,7 @@ const links = [
   { label: "About", to: "/about" },
   { label: "Facilities", to: "/facilities" },
   { label: "Study Material", to: "/study-material" },
+  { label: "Membership", to: "/membership" },
   { label: "Gallery", to: "/gallery" },
   { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
@@ -38,7 +39,6 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
-        
         {/* Logo Section */}
         <Link
           to="/"
@@ -88,41 +88,67 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden h-10 w-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-ivory hover:bg-white/10 transition-colors"
+          className="lg:hidden h-10 w-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-ivory hover:bg-white/10 transition-colors z-50 relative"
           aria-label="Toggle Menu"
         >
           {open ? <FiX size={20} /> : <FiMenu size={20} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Slide-in Drawer from Left */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -15, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -15, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden absolute top-full left-0 right-0 mx-4 mt-3 p-3 rounded-2xl bg-navy-deep/95 backdrop-blur-2xl border border-gold/20 shadow-2xl"
-          >
-            <div className="flex flex-col space-y-1">
-              {links.map((l) => (
-                <NavLink
-                  key={l.to}
-                  to={l.to}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    `px-4 py-3 rounded-xl font-heading text-sm transition-all duration-200 ${
-                      isActive
-                        ? "text-gold bg-gold/10 font-medium"
-                        : "text-ivory/80 hover:text-ivory hover:bg-white/5"
-                    }`
-                  }
-                >
-                  {l.label}
-                </NavLink>
-              ))}
-              <div className="pt-2 mt-2 border-t border-white/10">
+          <>
+            {/* Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm lg:hidden z-40"
+            />
+
+            {/* Sidebar Drawer */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: "0%" }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 bottom-0 w-[80%] max-w-sm bg-navy-deep/95 backdrop-blur-2xl border-r border-gold/20 shadow-2xl lg:hidden z-50 flex flex-col p-6 overflow-y-auto"
+            >
+              {/* Drawer Header / Logo Inside Menu */}
+              <div className="flex items-center gap-3 pb-6 mb-6 border-b border-white/10">
+                <div className="h-12 w-12 bg-white rounded-full overflow-hidden border border-gold/40 flex items-center justify-center">
+                  <img src={Logo} alt="Logo" className="h-full w-full object-cover" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-display text-base font-semibold text-ivory">Vasudev</span>
+                  <span className="text-[0.6rem] uppercase tracking-[0.2em] text-gold font-bold">Digital Library</span>
+                </div>
+              </div>
+
+              {/* Navigation Links */}
+              <div className="flex flex-col space-y-2 flex-1">
+                {links.map((l) => (
+                  <NavLink
+                    key={l.to}
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `px-4 py-3 rounded-xl font-heading text-sm transition-all duration-200 flex items-center justify-between ${
+                        isActive
+                          ? "text-gold bg-gold/10 font-medium border-l-2 border-gold"
+                          : "text-ivory/80 hover:text-ivory hover:bg-white/5"
+                      }`
+                    }
+                  >
+                    {l.label}
+                  </NavLink>
+                ))}
+              </div>
+
+              {/* Bottom CTA Button inside Drawer */}
+              <div className="pt-6 mt-6 border-t border-white/10">
                 <Button
                   as="link"
                   to="/contact"
@@ -133,8 +159,8 @@ export default function Navbar() {
                   Join Now
                 </Button>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

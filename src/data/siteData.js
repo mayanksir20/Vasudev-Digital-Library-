@@ -90,6 +90,10 @@ export const specialFacilities = [
   { title: "Personal Desk", desc: "A private desk assigned to every member." },
   { title: "Reading Lamp", desc: "An individual lamp at every desk for late-night study." },
   { title: "Emergency Lights", desc: "Backup lighting that activates instantly during a power cut." },
+  {
+    title: "Exclusive Girls Study Rooms",
+    desc: "Dedicated personal cabins and separate secure rooms designed exclusively for female aspirants with complete privacy and safety."
+  }
 ];
 
 export const safetyTimeline = [
@@ -124,29 +128,29 @@ export const studyMaterials = [
   { title: "Digital Resources", desc: "E-books, PDFs and recorded reference material." },
 ];
 
-export const galleryCategories = ["All", "Reading Halls", "Cabins", "Facilities", "Events"];
+export const galleryCategories = ["All", "Inside Our 24×7 Reading Halls", "Cabins", "Facilities", "Events"];
 
 export const galleryImages = [
-  { id: 1, category: "Reading Halls", src: img1, alt: "Premium reading hall" },
+  { id: 1, category: "Inside Our 24×7 Reading Halls", src: img1, alt: "Premium Inside Our 24×7 Reading Hall" },
   { id: 2, category: "Cabins", src: img2, alt: "Individual study cabin" },
   { id: 3, category: "Facilities", src: img3, alt: "Library facilities" },
-  { id: 4, category: "Reading Halls", src: img4, alt: "Students reading" },
+  { id: 4, category: "Inside Our 24×7 Reading Halls", src: img4, alt: "Students reading" },
   { id: 5, category: "Events", src: img5, alt: "Library event" },
   { id: 6, category: "Cabins", src: img6, alt: "Study chamber" },
   { id: 7, category: "Facilities", src: img7, alt: "Library amenities" },
-  { id: 8, category: "Reading Halls", src: img8, alt: "Silent reading zone" },
+  { id: 8, category: "Inside Our 24×7 Reading Halls", src: img8, alt: "Silent reading zone" },
   { id: 9, category: "Events", src: img9, alt: "Library gathering" },
   { id: 10, category: "Cabins", src: img10, alt: "Private study space" },
   { id: 11, category: "Facilities", src: img11, alt: "Library infrastructure" },
-  { id: 12, category: "Reading Halls", src: img12, alt: "Students studying" },
+  { id: 12, category: "Inside Our 24×7 Reading Halls", src: img12, alt: "Students studying" },
   { id: 13, category: "Events", src: img13, alt: "Library workshop" },
 ];
 
 
 import videoGallery1 from "../assets/thumbnails/A Walkthrough of Vasudev Digital Library.webp";
-import videoGallery2 from "../assets/thumbnails/Inside Our 24×7 Reading Hall.webp";
+import videoGallery2 from "../assets/thumbnails/Reading Hall.webp";
 import videoGallery3 from "../assets/thumbnails/Meet Our Members.webp";
-import videoGallery4 from "../assets/thumbnails/Library Facilities & Environment.webp";
+import videoGallery4 from "../assets/thumbnails/Library Facilities Environment.webp";
 
 export const videoGallery = [
   {

@@ -36,29 +36,49 @@ export default function Footer() {
 
       <Container className="relative z-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-          
           {/* Brand & Bio (Col 4) */}
           <div className="lg:col-span-4 space-y-6">
             <Link to="/" className="flex items-center gap-3 group">
               <div className="h-12 w-12 bg-white rounded-full overflow-hidden border border-gold/40 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
-                <img src={Logo} alt="vasudev digital library" className="h-full w-full object-cover" />
+                <img
+                  src={Logo}
+                  alt="vasudev digital library"
+                  className="h-full w-full object-cover"
+                />
               </div>
               <span className="font-heading text-xl font-bold text-ivory tracking-wide">
                 Vasudev Digital Library
               </span>
             </Link>
-            
+
             <p className="text-sm leading-relaxed text-ivory/60 max-w-sm">
-              A premium, distraction-free study sanctuary in Akbarpur — built for aspirants who take their preparation seriously.
+              A premium, distraction-free study sanctuary in Akbarpur — built
+              for aspirants who take their preparation seriously.
             </p>
 
             {/* Social Icons */}
             <div className="flex gap-3 pt-2">
               {[
-                { Icon: FiFacebook, href: socialLinks.facebook, label: "Facebook" },
-                { Icon: FiInstagram, href: socialLinks.instagram, label: "Instagram" },
-                { Icon: FiYoutube, href: socialLinks.youtube, label: "YouTube" },
-                { Icon: FiTwitter, href: socialLinks.twitter, label: "Twitter" },
+                {
+                  Icon: FiFacebook,
+                  href: socialLinks.facebook,
+                  label: "Facebook",
+                },
+                {
+                  Icon: FiInstagram,
+                  href: socialLinks.instagram,
+                  label: "Instagram",
+                },
+                {
+                  Icon: FiYoutube,
+                  href: socialLinks.youtube,
+                  label: "YouTube",
+                },
+                {
+                  Icon: FiTwitter,
+                  href: socialLinks.twitter,
+                  label: "Twitter",
+                },
               ].map(({ Icon, href, label }, i) => (
                 <a
                   key={i}
@@ -86,7 +106,10 @@ export default function Footer() {
                     to={p.to}
                     className="text-sm text-ivory/60 transition-colors hover:text-gold flex items-center gap-1 group"
                   >
-                    <span className="transition-transform group-hover:translate-x-1">›</span> {p.label}
+                    <span className="transition-transform group-hover:translate-x-1">
+                      ›
+                    </span>{" "}
+                    {p.label}
                   </Link>
                 </li>
               ))}
@@ -110,7 +133,9 @@ export default function Footer() {
                   <span className="block text-ivory font-medium">
                     {business.founder}
                   </span>
-                  <span className="text-xs text-gold/80">{business.founderTitle}</span>
+                  <span className="text-xs text-gold/80">
+                    {business.founderTitle}
+                  </span>
                 </li>
               </ul>
             </div>
@@ -165,8 +190,17 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
 
+            {/* Membership Page Button */}
+            <div className="mt-6">
+              <Link
+                to="/membership"
+                className="inline-flex items-center justify-center w-full sm:w-auto bg-gold-gradient text-navy-deep font-heading text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl shadow-md hover:scale-[1.02] transition-all"
+              >
+                Explore Membership Plans
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Bottom Bar Divider */}
@@ -175,7 +209,8 @@ export default function Footer() {
         {/* Copyright & Credits */}
         <div className="flex flex-col-reverse items-center justify-between gap-4 text-xs text-ivory/50 md:flex-row">
           <p>
-            © {new Date().getFullYear()} Vasudev Digital Library. All rights reserved.
+            © {new Date().getFullYear()} Vasudev Digital Library. All rights
+            reserved.
           </p>
           <p className="flex items-center gap-1">
             Crafted with care for every aspirant who walks through our doors.
